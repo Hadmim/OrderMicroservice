@@ -1,0 +1,152 @@
+<mat-card class="card">
+  <mat-card-header class="header">
+    <div mat-card-avatar class="cib-header-image"></div>
+    <mat-card-title>Informations de la carte</mat-card-title>
+    <mat-card-subtitle>Carte crédit bancaire</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    
+
+    <div [formGroup]="bancaireform" style="padding: 1% 5%">
+      <div class="item">
+        <label>Nom de la banque:<span>*</span></label>
+        <select name="banque" class="form_input">
+          <option value="b1">&nbsp;&nbsp;Séléctionner une banque</option>
+          <option value="b2">
+            &nbsp;&nbsp;la Banque extérieure d’Algérie (BEA)
+          </option>
+          <option value="b3">
+            &nbsp;&nbsp;Banque nationale d’Algérie (BNA)
+          </option>
+          <option value="b4">
+            &nbsp;&nbsp;Crédit populaire d’Algérie (CPA)
+          </option>
+          <option value="b5">
+            &nbsp;&nbsp;Banque de développement local(BDL)
+          </option>
+          <option value="b6">
+            &nbsp;&nbsp;Banque de l'agriculture et du développement rural (BADR)
+          </option>
+          <option value="b7">
+            &nbsp;&nbsp;Caisse nationale d'épargne et de prévoyance (CNEP
+            Banque)
+          </option>
+          <option value="b8">&nbsp;&nbsp;Banque Al Baraka d’Algérie</option>
+          <option value="b9">&nbsp;&nbsp;Citibank N.A Algeria</option>
+          <option value="b10">
+            &nbsp;&nbsp;Arab Banking Corporation-Algeria
+          </option>
+          <option value="b11">&nbsp;&nbsp;Natixis-Algérie</option>
+          <option value="b12">&nbsp;&nbsp;Société Générale-Algérie</option>
+          <option value="b13">&nbsp;&nbsp;Arab Bank Plc-Algeria</option>
+          <option value="b14">&nbsp;&nbsp;BNP Paribas Al-Djazair</option>
+          <option value="b15">&nbsp;&nbsp;Trust Bank-Algeria</option>
+          <option value="b16">
+            &nbsp;&nbsp;The Housing bank for trade and finance-Algeria
+          </option>
+          <option value="b17">&nbsp;&nbsp;Gulf Bank Algérie</option>
+          <option value="b18">&nbsp;&nbsp;Fransabank Al-Djazair</option>
+          <option value="b19">
+            &nbsp;&nbsp;Crédit agricole corporate et investment Bank-Algérie
+          </option>
+          <option value="b20">&nbsp;&nbsp;HSBC-Algeria</option>
+          <option value="b21">&nbsp;&nbsp;Al Salam Bank-Algeria</option>
+        </select>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label>Numero de la carte<span>*</span></label>
+        <input
+          type="text"
+          name="Numero de la carte"
+          maxlength="19"
+          formControlName="bancaireCardNumber"
+          (keypress)="OnlyNumberAllow($event)"
+          style="width: 50%"
+          required
+        />
+      </div>
+      <div class="error"
+      *ngIf="bancaireform.controls['bancaireCardNumber'].invalid && (bancaireform.controls['bancaireCardNumber'].dirty || bancaireform.controls['bancaireCardNumber'].touched)">
+      <mat-error *ngIf="bancaireform.controls['bancaireCardNumber'].errors?.required">
+        Numero de la carte est requis.
+      </mat-error>
+   
+    </div>
+     
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label>Date d'expiration:<span>*</span></label>
+        <br />
+        <br />
+        <div class="item">
+          <label style="padding-left:30px; width: 150px;">Mois:</label>
+          <select name="MM" id="month" class="form_input">
+            <option *ngFor="let month of monthes ,index as i" [value]="i+1">
+              {{ month }}
+            </option>
+          </select>
+          </div>
+          <div class="item">
+          <label style="padding-left:30px; width: 150px;">Année:</label>
+
+          <select style="width: 70px;">
+            <option *ngFor="let yesr of yesrs" [value]="yesr">
+              {{ yesr }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label style="display: inline"
+          >Enterz le Code CVC2/CVV2:<span>*</span></label
+        >
+
+
+        <input
+          style="width: 10%;margin: 0 10px ;"
+          name="$CVv"
+          maxlength="3"
+          id="iCVC"
+          type="password"
+          formControlName="bancaireICVC"
+          autocomplete="off"
+          (keypress)="OnlyNumberAllow($event)"
+        />
+        <span
+        style="font-size: 0.7em; font-style: italic"
+        >(Situé au dos de la carte)
+      </span>
+      </div>
+      <div class="error"
+      *ngIf="bancaireform.controls['bancaireICVC'].invalid && (bancaireform.controls['bancaireICVC'].dirty || bancaireform.controls['bancaireICVC'].touched)">
+      <mat-error *ngIf="bancaireform.controls['bancaireICVC'].errors?.required">
+        le Code CVC2/CVV2 est requis.
+      </mat-error>
+   
+    </div>
+     
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <div>
+          <label>Nom et prénom<span>*</span></label>
+          <input type="text"      
+               formControlName="bancaireFullName"
+          autocomplete="true" style="width: 50%" />
+        </div>
+      </div>
+      <div class="error"
+      *ngIf="bancaireform.controls['bancaireFullName'].invalid && (bancaireform.controls['bancaireFullName'].dirty || bancaireform.controls['bancaireFullName'].touched)">
+      <mat-error *ngIf="bancaireform.controls['bancaireFullName'].errors?.required">
+        Nom et prénom est requis.
+      </mat-error>
+   
+    </div>
+     
+
+    </div>
+  </mat-card-content>
+</mat-card>

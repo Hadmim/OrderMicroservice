@@ -1,0 +1,46 @@
+<mat-card class="card">
+  <mat-card-header class="header">
+    <mat-card-title>Autre informations:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+   <div class="part">
+      <h3>les informations de votre livraison ({{ option }})</h3>
+    <mat-list *ngIf="option == 'Laivraison à domicile'">
+      <mat-list-item>Wilaya: </mat-list-item>
+      <mat-list-item>Commune: </mat-list-item>
+      <mat-list-item>Code postal: </mat-list-item>
+      <mat-list-item>Numero et rue: </mat-list-item>
+      <mat-list-item>Téléphone: </mat-list-item>
+      <mat-list-item>Email:</mat-list-item>
+      <mat-list-item>Link GPS: <a href=""></a></mat-list-item>
+    </mat-list>
+
+    <mat-list *ngIf="option == 'Point de livraison'">
+      <mat-list-item>Point de livraison:</mat-list-item>
+      <mat-list-item>Téléphone:</mat-list-item>
+      <mat-list-item>Email:</mat-list-item>
+      <mat-list-item>Link GPS: <a href=""></a></mat-list-item>
+    </mat-list>
+
+    <mat-list *ngIf="option == 'Point de livraison chez le vendeur'">
+      <mat-list-item>Point de livraison: </mat-list-item>
+      <mat-list-item>Téléphone:</mat-list-item>
+      <mat-list-item>Email:</mat-list-item>
+      <mat-list-item>Link GPS: <a href=""></a></mat-list-item>
+      <mat-list-item>Délait de livraison:</mat-list-item>
+      <mat-list-item>Frais de transport:</mat-list-item>
+    </mat-list>
+  </div>
+
+  <mat-divider [inset]="true" ></mat-divider>
+  <div class="part">
+      <h3>Votre commande</h3>
+      <mat-list>
+        <mat-list-item>N° Commande: </mat-list-item>
+        <mat-list-item>Prix total:</mat-list-item>
+        <mat-list-item>Prix(avec TVA):</mat-list-item>
+        <mat-list-item>Prix total TTC:</mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>

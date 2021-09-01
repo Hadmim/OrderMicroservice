@@ -1,0 +1,66 @@
+<div class="row justify-content-center ">
+    <div class="col-md-6 col-lg-6 col-dm-12 cart mx-2 mb-2">
+
+        <div class="order_price row">
+            <p>Prix récapitulatif de la commande</p>
+            <h4 name="tax" > {{Order.totalOutsideTax}} <small>DZD</small></h4>
+        </div>
+        <div class="tva">
+            <label class=" row justify-content-between mx-1" for="myCheck">
+                <div class="mx-2">
+                    
+                    <input type="checkbox" id="myCheck" [checked]="checks" [(ngModel)]="val"   (change)="Showtva($event)"/>
+                    TVA
+                  
+                </div>
+                                           <h4 id="tva" class=""  name="tva" >{{Order.tva}}<small>DZD</small></h4>
+                                          </label>
+        </div>
+
+        <div class="order_total border-top  ">
+            <p>Montant total</p>
+            <h4 > {{Order.orderTotal}}<small> DZD</small></h4>
+        </div>
+        <!----------achteur demande un facteur -->
+        <!-- Button trigger modal -->
+        <div class=" mb-2  ml-2  ">
+           <div class="ml-1">
+            <input type="checkbox"        />
+            Obtenir la facture
+           </div>
+               
+              
+           
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!------------------------------------------------>
+
+
+
+
+    <div class="col-md-5 ml-1 col-lg-5 col-dm-12 cart mx-2 mb-2">
+       <div class="mt-4 mx-2">
+        <input type="checkbox"/>
+        Payer une commande
+       </div> 
+      
+
+        <div class="input-group my-2 d-flex justify-content-center mt-3 ">
+            <input type="text" class="formcontrol text-center col-sm-12" placeholder="Numéro de commande" [(ngModel)]="Order.orderNumber" name="numorder"aria-describedby="basic-addon2" readonly>
+
+        </div>
+
+       
+
+    </div>
+</div>

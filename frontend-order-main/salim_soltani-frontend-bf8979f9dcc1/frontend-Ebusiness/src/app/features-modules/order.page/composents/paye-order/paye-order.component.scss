@@ -1,0 +1,107 @@
+
+@mixin cartstyle {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: white;
+    height: 40%;
+}
+
+.formcontrol {
+    padding: 0.5%;
+    margin: 1%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid gray;
+    outline: none;
+    background: transparent;
+    &:focus {
+        border-bottom: 1px solid blue;
+    }
+}
+
+.cart {
+    @include cartstyle;
+}
+
+
+/********************* upload file***************************************/
+
+.cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+input[type="file"] {
+    z-index: 1;
+    font-size: medium;
+    font-size: 15px;
+    color: rgb(153, 153, 153);
+    &:hover {
+        color: black;
+    }
+}
+
+.button-wrap {
+    position: relative;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.new-button {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    &:hover {
+        color: blue;
+    }
+}
+
+
+/*****/
+
+
+/* order service price total*/
+
+.order_service {
+    display: none
+}
+
+.order_price,
+.order_service,
+.order_total {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.order_price p,
+.order_service p {
+    color: gray;
+}
+
+.order_total p {
+    font-weight: 600;
+}
+
+#tva {
+    display: none;
+}
+
+.btn {
+    border-radius: 8px;
+    border: 1px solid blue;
+    color: blue;
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+}

@@ -1,0 +1,116 @@
+<mat-card class="card">
+  <mat-card-header class="header">
+    <div mat-card-avatar class="ccp-header-image"></div>
+    <mat-card-title>Informations de la carte</mat-card-title>
+    <mat-card-subtitle>Carte El-Dahabia</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <h3 style="padding-left: 2%">
+      Veuillez saisir les informations de votre paiement
+    </h3>
+
+    <div [formGroup]="dahabiaform" style="padding: 1% 5%">
+      <div class="item">
+        <label>Numero de la carte<span>*</span></label>
+        <input
+          type="text"
+          name="Numero de la carte"
+          maxlength="19"
+          formControlName="dahabiaCardNumber"
+          (keypress)="OnlyNumberAllow($event)"
+          style="width: 50%"
+          required
+        />
+      </div>
+      <div class="error"
+      *ngIf="dahabiaform.controls['dahabiaCardNumber'].invalid && (dahabiaform.controls['dahabiaCardNumber'].dirty || dahabiaform.controls['dahabiaCardNumber'].touched)">
+      <mat-error *ngIf="dahabiaform.controls['dahabiaCardNumber'].errors?.required">
+        Numero de la carte est requis.
+      </mat-error>
+   
+    </div>
+     
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label style="display: inline">Date d'expiration:<span>*</span></label>
+        <br />
+        <br />
+        <div class="item">
+          <label style="padding-left:30px; width: 150px;">Mois:</label>
+          <select formControlName="dahabiaMonth" name="MM" id="month" class="form_input">
+            <option  *ngFor="let month of monthes ,index as i" [value]="i+1">
+              {{ month }}
+            </option>
+          </select>
+          </div>
+          <div class="item">
+          <label style="padding-left:30px; width: 150px;">Année:</label>
+
+          <select style="width: 70px;"
+                  formControlName="dahabiaYesr"          >
+            <option *ngFor="let yesr of yesrs" [value]="yesr">
+              {{ yesr }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="error"
+      *ngIf="dahabiaform.controls['dahabiaMonth'].invalid && (dahabiaform.controls['dahabiaMonth'].dirty || dahabiaform.controls['dahabiaMonth'].touched)">
+      <mat-error *ngIf="dahabiaform.controls['dahabiaMonth'].errors?.required">
+        Date d'expiration est requis.
+      </mat-error>
+   
+    </div>
+    <div class="error"
+    *ngIf="dahabiaform.controls['dahabiaYesr'].invalid && (dahabiaform.controls['dahabiaYesr'].dirty || dahabiaform.controls['dahabiaYesr'].touched)">
+    <mat-error *ngIf="dahabiaform.controls['dahabiaYesr'].errors?.required">
+      Date d'expiration est requis.
+    </mat-error>
+ 
+  </div>
+      
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label style="display: inline"
+          >Enterz le Code CVC2/CVV2:<span>*</span></label
+        >
+        <input
+        style="width: 10%;margin: 0 10px ;"
+        name="$CVv"
+        maxlength="3"
+        id="iCVC"
+        formControlName="dahabiaICVC"
+        type="password"
+        autocomplete="off"
+        (keypress)="OnlyNumberAllow($event)"
+      />
+      <span
+      style="font-size: 0.7em; font-style: italic"
+      >(Situé au dos de la carte)
+    </span>
+      </div>
+      <div class="error"
+      *ngIf="dahabiaform.controls['dahabiaICVC'].invalid && (dahabiaform.controls['dahabiaICVC'].dirty || dahabiaform.controls['dahabiaICVC'].touched)">
+      <mat-error *ngIf="dahabiaform.controls['dahabiaICVC'].errors?.required">
+        le Code CVC2/CVV2 est requis.
+      </mat-error>
+   
+    </div>
+         <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <div>
+          <label>Nom et prénom<span>*</span></label>
+          <input type="text" autocomplete="true" formControlName="dahabiaFullName" style="width: 50%" />
+        </div>
+      </div>
+      <div class="error"
+      *ngIf="dahabiaform.controls['dahabiaFullName'].invalid && (dahabiaform.controls['dahabiaFullName'].dirty || dahabiaform.controls['dahabiaFullName'].touched)">
+      <mat-error *ngIf="dahabiaform.controls['dahabiaFullName'].errors?.required">
+        Nom et prénom est requis.
+      </mat-error>
+   
+    </div>
+  </div>
+  </mat-card-content>
+</mat-card>

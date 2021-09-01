@@ -1,0 +1,74 @@
+<mat-card class="card">
+  <mat-card-header class="header">
+    <mat-card-title style="font-size: x-large">Informations enterprise</mat-card-title>
+  </mat-card-header>
+  <br />
+  <mat-card-content>
+    <form [formGroup]="myform" style="padding: 5px">
+      <div class="item">
+        <label>Nom d'enterprise</label>
+        <input formControlName="companyName" type="text" value="" name="nomE" required style="width: 50%" />
+   </div>
+   <div class="error"
+   *ngIf="myform.controls['companyName'].invalid && (myform.controls['companyName'].dirty || myform.controls['companyName'].touched)">
+   <mat-error *ngIf="myform.controls['companyName'].errors?.required">
+     Nom d'enterprise est requis.
+   </mat-error>
+
+ </div>
+  <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+        <label>Matricul fiscale</label>
+        <input type="text" formControlName="fiscaleName" style="width: 50%" required />
+      </div>
+      <div class="error"
+        *ngIf="myform.controls['fiscaleName'].invalid && (myform.controls['fiscaleName'].dirty || myform.controls['fiscaleName'].touched)">
+        <mat-error *ngIf="myform.controls['fiscaleName'].errors?.required">
+          Matricul fiscale est requis.
+        </mat-error>
+
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="item">
+        <label>Article</label>
+        <input formControlName="articleNumber" type="text" style="width: 50%" required />
+      </div>
+      <div class="error"
+        *ngIf="myform.controls['articleNumber'].invalid && (myform.controls['articleNumber'].dirty || myform.controls['articleNumber'].touched)">
+        <mat-error *ngIf="myform.controls['articleNumber'].errors?.required">
+          Article est requis.
+        </mat-error>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="item">
+        <label>Adresse</label>
+        <input type="text" formControlName="address" style="width: 50%" required />
+      </div>
+      <div class="error"
+        *ngIf="myform.controls['address'].invalid && (myform.controls['address'].dirty || myform.controls['address'].touched)">
+        <mat-error *ngIf="myform.controls['address'].errors?.required">
+          Adresse est requis.
+        </mat-error>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="item">
+        <label>Telephone</label>
+        <input type="text" formControlName="phoneNumer" required />
+      </div>
+      <div class="error"
+      *ngIf="myform.controls['phoneNumer'].invalid && (myform.controls['phoneNumer'].dirty || myform.controls['phoneNumer'].touched)">
+      <mat-error *ngIf="myform.controls['phoneNumer'].errors?.required">
+        Telephone est requis.
+      </mat-error>
+    </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="btns">
+    <button class="modifier" mat-stroked-button (click)="modify()">
+      Modifier
+    </button>
+  </mat-card-actions>
+</mat-card>

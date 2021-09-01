@@ -1,0 +1,49 @@
+<div class="payment-container">
+    <div class="row">
+
+
+        <form class="payment-form  " >
+          <div class="background-from">
+          </div>
+               <div>
+          <div style="margin-bottom: 10px;" >
+                <app-person-information></app-person-information>
+            </div>
+
+            <div class="infoAch" >
+                <app-company-information></app-company-information>
+            </div>
+            <br>
+            <br>
+               <app-payment-method (changePaymentMethodEvent)="changePaymentMethod($event)"></app-payment-method>
+            <br>
+            <br>
+            <div class="cardbox" *ngIf="paymentMethod=='dahabia'">
+                <app-method-dahabia ></app-method-dahabia>
+            </div>
+            <div  class="cardbox"  *ngIf="paymentMethod=='virement'">
+                <app-method-virement ></app-method-virement>
+            </div>
+            <div  class="cardbox"  *ngIf="paymentMethod=='bancaire'">
+                <app-method-bancaire ></app-method-bancaire>
+            </div>
+
+                <app-delivery-order ></app-delivery-order>
+                <div class=" btns">
+                  <input type="submit" class="retour" mat-stroked-button value="Retourner" />
+
+                  <input type="submit" class="payer" mat-stroked-button  (click)='payer()' value="Payer"
+                      [disabled]='transaction' />
+
+              </div>
+              <div  class="cardbox" >
+
+              </div>
+              <app-payment-msg-success></app-payment-msg-success>
+
+                <app-payment-msg-error></app-payment-msg-error>
+
+          </div>
+        </form>
+    </div>
+</div>

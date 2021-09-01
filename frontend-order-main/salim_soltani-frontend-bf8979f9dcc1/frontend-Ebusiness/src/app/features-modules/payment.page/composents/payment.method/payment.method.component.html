@@ -1,0 +1,20 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title style="text-align: center; font-size: large">
+      Choisissez votre mode de paiement
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="payment-methods">
+    <div [ngClass]="{'active-payment-method': (paymentMethod=='bancaire')}" class="payment-method-button" (click)="changePaymentMethod('bancaire')">
+      <img src="cib.png"/>
+
+    </div>
+    <div [ngClass]="{'active-payment-method': (paymentMethod=='dahabia')}" class="payment-method-button" (click)="changePaymentMethod('dahabia')">
+      <img src="icone-dahabia.png"/>
+
+    </div>
+    <div [ngClass]="{'active-payment-method': (paymentMethod=='virement')}" class="payment-method-button" (click)="changePaymentMethod('virement')">
+      <img role="virement" src="icon-virement.png"/>
+    </div>
+  </mat-card-content>
+</mat-card>

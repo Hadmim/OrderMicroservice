@@ -1,0 +1,33 @@
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  background-color: ghostwhite;
+}
+
+.payment-method-button {
+  display: flex;
+  min-width: 25%;
+  height: 70px;
+  border-radius: 6px;
+  margin: 6px 15px !important;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 5px 0;
+  background: white;
+  justify-content: center;
+}
+
+.payment-method-button img[role="virement"]{
+  width: 80px;
+}
+
+h2 {
+  padding-top: 5%;
+  font-weight: lighter;
+}
+.active-payment-method
+{
+  border: 1px solid blue;
+}

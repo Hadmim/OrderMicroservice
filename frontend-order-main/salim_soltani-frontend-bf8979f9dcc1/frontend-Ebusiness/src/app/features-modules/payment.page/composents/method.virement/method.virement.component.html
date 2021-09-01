@@ -1,0 +1,75 @@
+<mat-card class="card" >
+    <mat-card-header class="header">
+      <div mat-card-avatar class="vir-header-image"></div>
+      <mat-card-title >Virement bancaire</mat-card-title>
+      <mat-card-subtitle >Compte à Compte</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <h3  style="padding: 2%">
+        Nom de vendeur:
+
+      </h3>
+
+       <div [formGroup]="virmentForm" style="padding: 1% 5%;">
+         <div class="item">
+          <label >Numero de compte<span>*</span></label>
+          <input  type="text"
+                  maxlength="19"
+                  formControlName="virmentAccountNumer"
+                  (keypress)="OnlyNumberAllow($event)" style="width: 50%;" required/>
+
+        </div>
+        
+      <div class="error" *ngIf="virmentForm.controls['virmentAccountNumer'].invalid && (virmentForm.controls['virmentAccountNumer'].dirty || virmentForm.controls['virmentAccountNumer'].touched)">
+      <mat-error *ngIf="virmentForm.controls['virmentAccountNumer'].errors?.required">
+        Numero de compte est requis.
+      </mat-error>
+    </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="item">
+          <label>Adresse<span>*</span></label>
+          <input  type="text"
+          formControlName="virmentAdresse"
+                  style="width: 50%;"
+                   required/>
+
+        </div>
+        
+      <div class="error"
+      *ngIf="virmentForm.controls['virmentAdresse'].invalid && (virmentForm.controls['virmentAdresse'].dirty || virmentForm.controls['virmentAdresse'].touched)">
+      <mat-error *ngIf="virmentForm.controls['virmentAdresse'].errors?.required">
+        Adresse est requis.
+      </mat-error>
+    </div>
+        <mat-divider [inset]="true"></mat-divider>
+        <div class="item">
+          <label>Reçu de Virement:<span>*</span></label>
+          <input #input  type="file"
+          style="display: none;"
+          formControlName="virmentFile"
+          (change)="onchange($event)"
+          required/>
+          <div class="file-uplaod">
+         <div class="file-uplaod-btn" (click)="input.click()"  style="width: 15%;">
+                <mat-icon >cloud_upload</mat-icon>
+               <span>Select File</span>
+         </div>
+         <span>{{input.value}}</span>
+        </div>
+</div>
+        <div class="error"
+        *ngIf="virmentForm.controls['virmentFile'].invalid && (virmentForm.controls['virmentFile'].dirty || virmentForm.controls['virmentFile'].touched)">
+        <mat-error *ngIf="virmentForm.controls['virmentFile'].errors?.required">
+          Reçu de Virement est requis.
+        </mat-error>
+        </div>
+
+
+        </div>
+
+
+    </mat-card-content>
+
+  </mat-card>

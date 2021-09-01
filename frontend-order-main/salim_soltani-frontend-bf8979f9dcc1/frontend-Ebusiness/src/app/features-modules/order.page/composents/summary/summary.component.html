@@ -1,0 +1,73 @@
+<div class=" cart ">
+    <table mat-table [dataSource]="dataSource">
+
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+   
+        <!------image-->
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef>
+                <div>Produit</div>
+            </th>
+            <td mat-cell *matCellDef="let element" style=" width: fit-content; "> <img src="{{element.productImage}} " class="my-1" /></td>
+        </ng-container>
+
+        <!-- Name description -->
+        <ng-container matColumnDef="name" class="container">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="">
+                    <div class="col-12">
+                        <h1> {{element.productName}}</h1>
+                        <p>{{element.productDescription}}</p>
+                    </div>
+
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>
+                <div>prix</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="price">
+                    <h3>{{element.price}}<small>DZD</small></h3>
+                </div>
+            </td>
+        </ng-container>
+        <!-- quantity Column -->
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef>
+                <div>quantite</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="quantity m-3">
+                    <span class="pqt-minus" (click)="minus(element)">-</span>
+                    <input class="pqt" [value]="element.quantity" />
+                    <span class="pqt-plus" (click)="plus(element)">+</span>
+                </div>
+            </td>
+        </ng-container>
+        <!-- check Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>
+                <div class="justify-content-center">
+                    <mat-checkbox id="check" [checked]="checked" color="primary" (change)="select()" class="example-margin"></mat-checkbox>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-checkbox [checked]="checked" color="primary" class="example-margin"></mat-checkbox>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
+        </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>

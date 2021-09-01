@@ -1,0 +1,53 @@
+<div class="form-box ">
+    <div class="button-box  ">
+
+        <button type="button" class="toggle-btn active" id="personbtn" (click)="personf()">Personne</button>
+        <button type="button" class="toggle-btn" id="entrepricebtn" (click)="entrepricef()">Entreprise</button>
+    </div>
+    <!------simple client-->
+
+    <form id="person" action="" class="input-group " >
+        <div class="inputs col-md-12 col-sm-12 col-lg-12">
+            <input type="text" class="input-field" placeholder="Prénom" [(ngModel)]="byer.lastNameB" name="prenom" required>
+            <input type="text" class="input-field" placeholder="Nom" [(ngModel)]="byer.firstNameB" name="nom" required>
+            <input type="email" class="input-field" placeholder="Email" [(ngModel)]="byer.emailBuyer" name="email" required>
+            <input type="text" class="input-field" placeholder="Numéro de téléphone" [(ngModel)]="byer.phoneBuyer" name="tel" required>
+        </div>
+
+        <!--- button pay --->
+        <div class="buttons">
+            <button class="btn" (click)="openDialog()">
+                Valider La commande
+
+</button>
+
+            <!----button-->
+
+        </div>
+    </form>
+
+    <!---entreprise form-->
+    <form id="entreprice" action="" class="input-group">
+        <div class="inputs col-md-12 col-sm-12 col-lg-12">
+            <input type="text" class="input-field" placeholder="Nom de l'entreprise"  required>
+            <input type="text" class="input-field" placeholder="Numéro d'identification fiscale" required>
+            <input type="text" class="input-field" placeholder="Article" required>
+            <input type="text" class="input-field" placeholder="L'adresse" required>
+            <input type="url" class="input-field" placeholder="Lien de votre site web" required>
+        </div>
+
+
+        <!---button--->
+        <div class="buttons">
+
+            <button class=" btn" (click)="openDialog()">
+Valider La commande
+
+</button>
+
+
+        </div>
+    </form>
+</div>
+
+<!-------------------------------------------------------END   form Clinet-->
